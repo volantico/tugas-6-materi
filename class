@@ -1,0 +1,66 @@
+package matriks;
+import java.util.Scanner;
+/**
+ *
+ * @author wisnu RP
+ */
+public class Matriks {
+     int row,col;
+    int[][] elm;
+    Matriks(int r,int c){
+        row=r;col=c;
+        elm=new int[row][col];
+        
+    }
+    boolean isEqOrdo(Matriks M){
+        if (row==M.row)
+            if(col==M.col) 
+                return true;
+            else 
+                return false;
+        else return false;
+    }
+    void Baca(){
+        Scanner baca = new Scanner(System.in);
+        for(int i=0;i<row;i++)
+            for(int j=0;j<col;j++){
+              System.out.print("elemen ("+i+","+j+")=");
+              elm[i][j]=baca.nextInt();
+                
+            }
+    }
+    
+     void Cetak(){
+        
+        for(int i=0;i<row;i++){
+            for(int j=0;j<col;j++)
+              System.out.print(elm[i][j]+"  "  );
+            System.out.println();
+            }
+    }
+    
+    Matriks tambah(Matriks M){
+        Matriks T = new Matriks(row,col);
+        for(int i=0;i<row;i++)
+            for(int j=0;j<col;j++)
+               T.elm[i][j]=elm[i][j]+M.elm[i][j];
+           
+       return T;
+    }
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+       Matriks M =new Matriks(2,2);
+     Matriks N =new Matriks(2,2);
+     
+     if(M.isEqOrdo(N)){
+       Matriks P=new Matriks(2,2);
+       System.out.println("Baca Matriks Pertama:");
+       M.Baca();
+       System.out.println("Baca Matriks Kedua");
+       N.Baca();
+       P =M.tambah(N);
+       System.out.println("Cetak hasil penjumlahan:");
+       P.Cetak();
