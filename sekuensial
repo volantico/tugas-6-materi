@@ -1,0 +1,24 @@
+package persegipanjang;
+import java.util.Scanner;
+/**
+ *
+ * @author wisnu RP
+ */
+public class Persegipanjang {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+       Scanner Baca = new Scanner (System.in);
+       int p,l,K,L;
+       System.out.print("panjang =");
+       p = Baca.nextInt();
+       System.out.print("lebar =");
+       l = Baca.nextInt();
+       
+       K = 2*(p+l);
+       L = p*l;
+       
+       System.out.print("keliling =" +K);
+       System.out.print("luas =" +L);
